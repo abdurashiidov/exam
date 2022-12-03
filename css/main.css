@@ -363,4 +363,10 @@ template {
 [hidden] {
   display: none;
 }
+
+body {
+  background-image: url(../../img/background1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /*# sourceMappingURL=main.css.map */
