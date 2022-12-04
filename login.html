@@ -4,26 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/main.css">
     <title>Login</title>
 </head>
 <body>      
 
-    <div class="container">   
-        <img class="logo-white" src="./img/logo-white.svg" alt="logo white">
-        <form class="login-form">
+    
+    <div class="bg-image">
+        <div class="row align-items-center"  style="min-height: 100vh; background-color: rgba(0,0,0,0.7);">
+            <div class="col-3">
+                
+            </div>
+            <div class="col-6 ">
+                <div class="d-flex justify-content-center">   
+                    <form class="d-flex flex-column w-50 login-form">
+                        <div class="d-flex justify-content-center mb-5">
+                            <img class="img-fluid w-75" src="./img/logo-white.svg" alt="logo white">
+                        </div>
+                        <div class="input-group mb-4" style="opacity: 0.7;">
+                            <span class="input-group-text border-end-0 " style="background-color: transparent;" id="basic-addon1"><i class="fa-regular fa-user text-white"></i></span>
+                            <input type="text" value="eve.holt@reqres.in" class="form-control border-start-0 text-white form-input email-input" style="background-color: transparent;" placeholder="USERNAME" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-4" style="opacity: 0.7;">
+                            <span class="input-group-text border-end-0 " style="background-color: transparent;" id="basic-addon1"><i class="bi bi-key text-white"></i></span>
+                            <input type="text" value="cityslicka" class="form-control border-start-0 text-white form-input pass-input" style="background-color: transparent;" placeholder="PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                              
+                              <button class="btn btn-light text-primary">LOGIN</button>
             
-            <input class="login-inputName" type="text" placeholder="login">
-            <input class="login-inputPassword" name="password" type="password" placeholder="password">
-
-            <button class="login-btn">LOGIN</button>
-
-        </form>
-
+                    </form>
+                    
+                </div>
+                <div class="col-3">
+                    
+                </div>
+            </div>
+            <div class="d-flex position-absolute align-items-end h-75 mt-5 justify-content-center w-100 user-not-found" style="opacity: 0; transition: .8s ease all; pointer-events: none;">
+                <div class=" d-flex bg-danger w-75 p-2 pb-0 rounded-1 pt-2">
+                    <div class="bg-white rounded-circle ms-1 d-flex justify-content-center align-items-center" style="width: 30px; height: 30px;"><i class="fa-solid fa-x text-danger"></i></div>
+                    <p class="text-white ms-3 mt-0">user not found</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-
-    <script src="./js/main.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
