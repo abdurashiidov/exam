@@ -409,9 +409,7 @@ body {
 }
 
 .modal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 100;
   left: 0;

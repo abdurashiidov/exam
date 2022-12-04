@@ -5,10 +5,16 @@ let logOutBtn = document.querySelector('.logout-btn')
 let resultTitle = document.querySelector('.result-title')
 let sortByData = document.querySelector('.sort-bydate')
 let bookMarkList = document.querySelector('.bookmarks-list')
+let modal = document.querySelector('.modal')
+let closeModal = document.querySelector('.close-modal')
 
 if (!tokenLocal) {
     window.location.replace('./login.html')
 }
+
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+})
 
 let windowMarks = JSON.parse(window.localStorage.getItem('bookmarks'))
 let newBookMark = windowMarks ? windowMarks : []
@@ -86,6 +92,11 @@ async function fetchBook(searchValue, sort) {
                     newBookMark.push(data)
                     window.localStorage.setItem('bookmarks', JSON.stringify(newBookMark))
                     bookMark(newBookMark)
+                })
+
+                moreInfoBtn.addEventListener('click', () => {
+                    modalData(data)
+                    modal.style.display = 'flex'
                 })
 
                 bookImageCard.appendChild(bookImage)
@@ -198,3 +209,41 @@ function bookMark(bookmarkData) {
 }
 
 bookMark(newBookMark)
+
+function modalData(findData) {
+   let modalTitle = document.querySelector('.modal-title');
+   let modalText = document.querySelector('.modal-text');
+   let modalAuthor = document.querySelector('.modal-author');
+   let modalCategorie = document.querySelector('.modal-categories');
+   let modalPublisher = document.querySelector('.modal-publisher');
+   let modalPageCount = document.querySelector('.modal-pagecount');
+   let modalPublished = document.querySelector('.modal-published');
+
+   modalTitle.textContent = findData.volumeInfo.title;
+   modalText.textContent = findData.volumeInfo.description;
+   modalPublisher.textContent = findData.volumeInfo.publisher;
+   modalPublished.textContent = findData.volumeInfo.publishedDate;
+   modalPageCount.textContent = findData.volumeInfo.pageCount;
+
+   findData.volumeInfo.authors?.map((author) => {
+    let findDataAuthor = document.createElement('button')
+    
+    findDataAuthor.setAttribute('class', 'btn btn-link bg-light text-decoration-none rounded-3')
+    findDataAuthor.style.whiteSpace = 'no-wrap';
+    findDataAuthor.textContent = author;
+    
+    modalAuthor.appendChild(findDataAuthor)
+    
+})
+
+findData.volumeInfo.categories?.map((categorie) => {
+    let findDataCategorie = document.createElement('button')
+    
+    findDataCategorie.setAttribute('class', 'btn btn-link bg-light text-decoration-none rounded-3')
+    findDataCategorie.style.whiteSpace = 'no-wrap';
+    findDataCategorie.textContent = categorie;
+    
+    modalCategorie.appendChild(findDataCategorie)
+    
+})
+}
