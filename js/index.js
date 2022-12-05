@@ -213,12 +213,14 @@ bookMark(newBookMark)
 function modalData(findData) {
    let modalTitle = document.querySelector('.modal-title');
    let modalText = document.querySelector('.modal-text');
+   let modalImg = document.querySelector('.modal-img');
    let modalAuthor = document.querySelector('.modal-author');
    let modalCategorie = document.querySelector('.modal-categories');
    let modalPublisher = document.querySelector('.modal-publisher');
    let modalPageCount = document.querySelector('.modal-pagecount');
    let modalPublished = document.querySelector('.modal-published');
 
+   modalImg.textContent = findData.volumeInfo.thumbnail;
    modalTitle.textContent = findData.volumeInfo.title;
    modalText.textContent = findData.volumeInfo.description;
    modalPublisher.textContent = findData.volumeInfo.publisher;
